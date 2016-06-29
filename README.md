@@ -3,7 +3,13 @@ It is possible to write data into flash that will cause an ESP8266 to fail to co
 
 Subsequent program uploads will then work fine using the Arduino IDE and over the air programming after the first Arduino upload.
 
-## Why Does It Occur?
+## How To Use This Sketch
+
+This sketch is unusual in that after it runs once the ESP8266 will do nothing until it has been flashed again with another sketch. This is because this sketch completely erases the flash, including erasing itself. It runs from RAM so is able to continue after being erased until it completes. It is best run with the Arduino serial monitor open to observe the progress of the erasure including any failed erasure, which may occur with damaged flash. It is possible to wear out flash if it has been written too many times. Usually this occurs when flash writes are repeated in a tight program loop.
+
+The sketch will run immediately after upload, completely erase the flash then crash, leaving the device unbootable. When the Arduino IDE uploads a new sketch it will also upload all of the necesary supporting firmware for the ESP8366 to function normally.
+
+## Why Is This Sketch Useful?
 
 There are some parts of flash where data resides that is preserved when a new program is uploaded. In particular Wifi configuration data is retained. If this data becomes corrupted it will not be overwritten and remain faulty.
 
@@ -15,9 +21,9 @@ While I've had frequent flash corruptions the effects are random. Calling WiFi.b
 
 ## Will My ESP8266 Device Suffer Bricking?
 
-Probably not, as the [bug causing the problem] (https://github.com/esp8266/Arduino/issues/1997)has been fixed. 
+Probably not, as the [bug causing the problem ] (https://github.com/esp8266/Arduino/issues/1997)has been fixed. 
 
-This bug only occasionally caused WiFi connectivity to permanently fail which probably explains why it existed so long before it was correctly identified. Once identified it was quickly fixed. Some of us have found this bug extremely frustrating due to the difficulty in trying to deal with failure modes that were not repeatable. 
+As well this bug only occasionally caused WiFi connectivity to permanently fail which probably explains why it existed so long before it was correctly identified. Once identified it was quickly fixed. Some of us have found this bug extremely frustrating due to the difficulty in trying to deal with failure modes that were not repeatable. 
 
 ## Some Of The Frustration
 
