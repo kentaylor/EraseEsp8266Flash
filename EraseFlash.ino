@@ -1,8 +1,8 @@
-//#include <WiFiManager.h>          //https://github.com/kentaylor/WiFiManager 
+#include <WiFiManager.h>          //https://github.com/kentaylor/WiFiManager 
 void setup() {
   Serial.begin(115200);
   Serial.println("Starting...");  
-//  printf("SDK version:%s\n", system_get_sdk_version());
+  printf("SDK version:%s\n", system_get_sdk_version());
   size_t cfgAddr = 1024; //(ESP.getFlashChipSize() - 0x4000);
   size_t cfgSize = 1024;//ESP.getFlashChipSize();//(8*1024);
   int last = (ESP.getFlashChipSize()/0x10)/(SPI_FLASH_SEC_SIZE);

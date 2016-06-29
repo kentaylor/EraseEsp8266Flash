@@ -11,7 +11,7 @@ The sketch will run immediately after upload, completely erase the flash then cr
 
 ## Why Is This Sketch Useful?
 
-There are some parts of flash where data resides that is preserved when a new program is uploaded. In particular Wifi configuration data is retained. If this data becomes corrupted it will not be overwritten and remain faulty.
+There are some parts of flash where data resides that is preserved when a new program is uploaded. In particular WiFi configuration data is retained. If this data becomes corrupted it will not be overwritten and remain faulty.
 
 ## What Causes Flash Corruption?
 
